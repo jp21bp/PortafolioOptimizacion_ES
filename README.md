@@ -69,7 +69,7 @@ Por el contrario, las estrategias sin ML superan a las estrategias ML en las sig
 
 
 
-![Retorno Acumulado](./Images/CompoundedReturns.png)
+![Retorno Acumulado](./Images/RetornosAcumulados.png)
 
 
 
@@ -120,7 +120,7 @@ Adicionalmente, el **modelo con ventanas expansivas** tiene mejores resultados a
 
 
 
-![Tabla](./Images/IndicatorTables.png)
+![Tabla](./Images/TablaIndicadores.png)
 
 
 
