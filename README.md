@@ -1,4 +1,4 @@
-# Table of Contents
+# Índice de Contenidos
 1. [Contexto del Proyecto](#contexto-del-proyecto)
     * [Hallazgos Insights, Recomendaciones y sus Enfoques](#hallazgos-insights-recomendaciones-y-sus-enfoques)
 2. [Estructura de los Datos y su Verificaciones](#estructura-de-los-datos-y-su-verificaciones)
