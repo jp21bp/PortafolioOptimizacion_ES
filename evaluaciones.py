@@ -1,12 +1,9 @@
 """
-This file contains the following from the original paper:
-* Non-ML portoflio strategies
-* Performance Metrics
+Este archivo evualara los modelos ML y no-ML
 
-Details:
-* Risk free rate won't be incorporated for simplicity reasons
-* Using simple returns, since daily returns will be used for evaluation
-
+Detalles: 
+* La tasa de cero-riesgo no se implementara para simplificar el analisis
+    - Pero el analisis permanece completo de igual manera, sin la tasa
 """
 ##### Import libraries
 import pandas as pd
