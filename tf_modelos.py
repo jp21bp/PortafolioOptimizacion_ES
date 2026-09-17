@@ -277,8 +277,18 @@ class LSTMModel(tf.keras.Model):
         super(LSTMModel, self).__init__(**kwargs)
         self.num_indicators = num_indicators
         self.num_assets=num_assets
+        self.num_filters_units= 64
+        self.cnn = tf.keras.layers.Conv1D(
+            filters = self.num_filters_units,
+            kernel_size=5,
+            padding="same",
+            data_format='channels_last',
+            activation='relu',
+            kernel_initializer = glorot_init,
+            bias_initializer = zero_init,
+        )
         self.lstm1 = tf.keras.layers.LSTM(
-            64,
+            units = self.num_filters_units,
             input_shape = (WINDOW_SIZE, num_indicators * num_assets),
             kernel_initializer = glorot_init,
             recurrent_initializer = orthogonal_init,
@@ -289,6 +299,7 @@ class LSTMModel(tf.keras.Model):
             kernel_regularizer = regularizer,
             name="lstm_1"
         )
+        self.avg = tf.keras.layers.Average()
         self.lstm2 = tf.keras.layers.LSTM(
             32,
             kernel_initializer = glorot_init,
@@ -316,12 +327,14 @@ class LSTMModel(tf.keras.Model):
 
     def call(self, inputs, training=False):
         # Add training to all layers with dropouts
-        x = self.lstm1(inputs, training=training)
-        x = self.dropout(x, training=training)
-        x = self.lstm2(x, training=training)
-        x = self.dropout(x, training=training)
-        x = self.dense(x)
-        return x
+        x = self.cnn(inputs)
+        y = self.lstm1(inputs, training=training)
+        z = self.avg([x,y])
+        z = self.dropout(z, training=training)
+        z = self.lstm2(z, training=training)
+        z = self.dropout(z, training=training)
+        z = self.dense(z)
+        return z
 
     def build(self):
         dummy_input = tf.zeros((1, WINDOW_SIZE, self.num_indicators * self.num_assets))
