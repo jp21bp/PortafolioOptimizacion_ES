@@ -49,6 +49,14 @@ La información histórica se descargó de YFinance, con los siguientes detalles
 * Compañías (post-filtración): AMXB.MX, AXIA3.SA, BBAS3.SA, BIMBOA.MX, BSAC, CEMEXCPO.MX, CENCOSUD.SN, CIB, FEMSAUBD.MX, GCARSOA1.MX, GGB, ISA.CL, PAC, PBR, RENT3.SA, SCCO, SQM, VALE, VIV, WALMEX.MX, WEGE3.SA
 * Indicadores: Cierre Ajustado, Cierre, Alto, Bajo, Apertura, y Volumen.
 
+<br><br>
+
+Procesamiento de Datos, detalles de los componentes del modelo, y la esquema de entrenamiento estan [AQUÍ](./tf_modelos.py)
+
+El grafo del modelo esta [AQUÍ](./Images/ModelGraph.png)
+
+Las estrategias no-ML y todas las evaluaciones estan [AQUÍ](./evaluaciones.py)
+
 
 ## Resumen Ejecutivo
 ### Resumen de Descubrimientos
