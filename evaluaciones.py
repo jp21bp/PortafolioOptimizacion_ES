@@ -82,7 +82,7 @@ def performance_metrics(ds_port_returns: pd.Series, periodic_rate: int = 252) ->
             "MD": 0.0,      # Max Drawdown
             "% Pos.(R)": 0.0,   # Porcentaje de Retornos Positivos
             "P/L Ratio": 0.0,   # Ratio de Ganancias/Perdidas
-            "Compounded Returns": np.array([1.0])   # Retornos Acumulados
+            "Cumulative Returns": np.array([1.0])   # Retornos Acumulados
         }                       
     
     # Annualize return
@@ -105,12 +105,12 @@ def performance_metrics(ds_port_returns: pd.Series, periodic_rate: int = 252) ->
     annualized_sortino = annualized_ret/(annualized_downside_dev + 1e-8)\
         if annualized_downside_dev > 0.0 else 0.0
     
-    # Compounded returns
-    compounded_rets = (1 + ds_port_returns).cumprod()
+    # Cumulative returns
+    cumulative_rets = (1 + ds_port_returns).cumprod()
 
     # Max Drawdown
-    peak = np.maximum.accumulate(compounded_rets.values)
-    drawdown = (compounded_rets - peak)/(peak + 1e-8)
+    peak = np.maximum.accumulate(cumulative_rets.values)
+    drawdown = (cumulative_rets - peak)/(peak + 1e-8)
     max_drawdown = np.min(drawdown) if len(drawdown) > 0 else 0.0
 
     # Percentage of positive returns
@@ -134,7 +134,7 @@ def performance_metrics(ds_port_returns: pd.Series, periodic_rate: int = 252) ->
         "MD": max_drawdown,
         "% Pos.(R)": per_pos_rets,
         "P/L Ratio": pl_ratio,
-        "Compounded Returns": compounded_rets
+        "Cumulative Returns": cumulative_rets
     }
 
 
@@ -452,43 +452,43 @@ for i, (strat, ds_port_ret) in enumerate(all_port_returns.items()):
         if strat_split[-1] == 'noVS':
             axs[0,0].plot(
                 range(len(common_dates)),
-                performance['Compounded Returns'],
+                performance['Cumulative Returns'],
                 color = colors[i] if strat_split[-2] != 'Benchmark' else 'black',
                 label = performance['Strategy']
             )
             # Appropriately store performance
-            del performance['Compounded Returns']
+            del performance['Cumulative Returns']
             per_results_ML_noVS.append(performance)
         else:
             axs[0,1].plot(
                 range(len(common_dates)),
-                performance['Compounded Returns'],
+                performance['Cumulative Returns'],
                 color = colors[i] if strat_split[-2] != 'Benchmark' else 'black',
                 label = performance['Strategy']
             )
             # Appropriately store performance
-            del performance['Compounded Returns']
+            del performance['Cumulative Returns']
             per_results_ML_VS.append(performance)
     else:   # nonML strats
         if strat_split[-1] == 'noVS':
             axs[1,0].plot(
                 range(len(common_dates)),
-                performance['Compounded Returns'],
+                performance['Cumulative Returns'],
                 color = colors[i] if strat_split[-2] != 'Benchmark' else 'black',
                 label = performance['Strategy']
             )
             # Appropriately store performance
-            del performance['Compounded Returns']
+            del performance['Cumulative Returns']
             per_results_noML_noVS.append(performance)
         else:
             axs[1,1].plot(
                 range(len(common_dates)),
-                performance['Compounded Returns'],
+                performance['Cumulative Returns'],
                 color = colors[i] if strat_split[-2] != 'Benchmark' else 'black',
                 label = performance['Strategy']
             )
             # Appropriately store performance
-            del performance['Compounded Returns']
+            del performance['Cumulative Returns']
             per_results_noML_VS.append(performance)
 # Final configs
 for ax in axs.flatten():
