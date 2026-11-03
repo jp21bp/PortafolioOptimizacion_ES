@@ -23,6 +23,14 @@
     * [P/L Ratio](#pl-ratio)
 8. [Suposiciones y Avisos](#suposiciones-y-avisos)
 
+## Tableau Dashboard
+
+![Portfolio Optimizacion Dashboard](./Imagenes/Dashboard.png)
+
+Tableau Dashboard Interactivo 1 [AQUÍ](https://public.tableau.com/views/ExecutiveLevel_MarketOverview/MarketOverview?:language=en-EN&:showVizHome=no&:embed=yes)
+
+Tableau Dashboard Interactivo 2 [AQUÍ](https://public.tableau.com/views/StockSector_EquityPerformance/SectorAnalysis?:language=en-EN&:showVizHome=no&:embed=yes)
+
 ## Contexto del Proyecto
 Capital Andina (CA) es una empresa que gestiona activos en Perú y se especializa en inversiones de renta variable y portafolios en el sector financiero de Sudamérica. Su estrategia de diversificación incluye a empresas financieras que cotizan en mercados dentro de Brasil, Chile, Colombia y Perú. Ellos principalmente se guían por el índice SPLAC, el cual contiene las 40 empresas más grandes en América Latina, y la usan como benchmark. 
 
