@@ -25,7 +25,7 @@
 
 ## Tableau Dashboard
 
-![Portfolio Optimizacion Dashboard](./Imagenes/Dashboard.png)
+![Portfolio Optimizacion Dashboard](./Images/Dashboard.png)
 
 Tableau Dashboard Interactivo 1 [AQUÍ](https://public.tableau.com/views/ExecutiveLevel_MarketOverview/MarketOverview?:language=en-EN&:showVizHome=no&:embed=yes)
 
