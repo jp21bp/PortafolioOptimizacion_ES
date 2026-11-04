@@ -58,6 +58,7 @@ La información histórica se descargó de YFinance, con los siguientes detalles
 * Indicadores: Cierre Ajustado, Cierre, Alto, Bajo, Apertura, y Volumen.
 
 <br><br>
+Las queries de SQL se encuentran [AQUÍ](./SQL_script.sql)
 
 Procesamiento de Datos, detalles de los componentes del modelo, y la esquema de entrenamiento estan [AQUÍ](./tf_modelos.py)
 
